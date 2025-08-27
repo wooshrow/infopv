@@ -1,0 +1,224 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="docs.css" />
+</head>
+<body>
+
+<h1>1. SPIN Tutorial</h1>
+
+<ol>
+
+<li>Install Spin on your machine.
+    Go through test-1 to 6 in <a href="./README_tests.txt">README_tests.txt</a> in the /Examples of
+    your installation to test your installation and to get familiar with the
+    basic workflow with Spin.
+
+<p><li>Consider the following "hello" program in Promela. It
+prints a number of "Hello" messages to the screen, and
+can non-deterministically decide to stop.
+
+<blockquote>
+<pre class=PROGRAMLISTING>
+byte x ;
+
+active proctype P1() {
+  do /* repeat forever */
+  :: x = x+1 ; printf("Hello (%u)!\n", x) ;
+  :: break ;
+  od ;
+  assert x&lt;3 ;
+  printf("\nBye!\n") ;
+}
+</pre>
+</blockquote>
+
+     <ol>
+     <li>Find out how you can "run" the program.
+         See <a href="http://spinroot.com/spin/Man/Spin.html">here</a> for SPIN's options.
+
+     <p>[<span title="Just do: spin hello.pml">spoiler</span>] </li>
+
+     <p>Note that when you run a program, you only produce <i>one</i> execution.
+        This does <i>NOT</i> verify all possible executions.
+
+     <p>
+     <li>The program contains an assertion. Now, verify whether the program will <i>never</i> violate
+         the assertion.
+         Use SPIN to generate a pan. Compile and run the pan.
+         Analyze the report. If it indicates an error is found, use SPIN again to
+         trace the resulting error trail.
+
+     See <a href="http://spinroot.com/spin/Man/Pan.html">here</a> for compile
+     options to produce pan, and pan's runtime options.
+     Options needed to trace are part of SPIN's runtime options, see <a href="http://spinroot.com/spin/Man/Spin.html">here</a>.
+
+     <p>[<span title="To produce pan: spin -a hello.pml. **To compile: gcc -o pan.exe pan.c. **To run: ./pan. To check for acceptance cycle, e.g. if you want to verify an LTL formula, run with -a option: ./pan -a. **To debug: spin -p -t -g hello.pml">spoiler</span>] </li>
+
+     </ol>
+
+</li>
+
+<!-- -------------------------------------------- -->
+
+<li> Consider the Promela program below. The sender cycles over the value of x,
+every time sending it to the receiver. At the receiver we also model that it
+may receive a corrupted data item, afterwhich it becomes stuck.
+
+
+<blockquote>
+<pre class=PROGRAMLISTING>
+chan link = [2] of {byte} ;
+
+proctype sender(chan c) {
+  byte x = 0 ;
+  do /* repeat forever */
+  :: printf("Sending %u\n", x) ; c!x ; x = (x+1)%4 ;
+  od ;
+}
+
+proctype receiver(chan c) {
+  byte r ;
+  byte trash ;
+  bool corrupt = false ;
+  do /* repeat forever */
+  :: c?r     -&gt; corrupt = false ; printf("Receiving %u\n", r) ;
+  :: c?trash -&gt; corrupt = true  ; printf("CORRUPTED\n") ; (false) ;
+  od ;
+}
+
+init {
+  run sender(link) ;
+  run receiver(link) ;
+}
+</pre>
+</blockquote>
+
+   <ol>
+   <li>Run the model checker on this model. It will report an error,
+   but the model does not even have any assertion nor LTL formula.
+   What kind of error is that? Debug the error trail.
+
+   <p>[<span title="It is an invalid end-state error. When you debug the error trail you can see that the execution stops, while some processes are not in their defined end-state.">spoiler</span>]
+   </li>
+
+   <li>Express the following property in LTL: "If x is 0 (at the sender), this value will
+   eventually be received". You can proceed to verify the property. It is not a valid
+   property; see if you can trace the error trail.
+
+   <p>You can write your ltl formula in your model-file. Check the topic ltl in <a href="http://spinroot.com/spin/Man/promela.html">Promela Language Reference</a>.
+
+   <p>When you run pan to check an LTL formula, you need to turn on the -a option.
+   If you need to impose process-level fairness, add -f option. Check the manual of <a href="http://spinroot.com/spin/Man/Pan.html">pan's runtime
+       options</a>. If you have multiple ltl formulas, -N option allows to to select.
+
+   <p>You would need a way to refer to a local variable from your LTL formula. Check
+   the topic remote reference (remoterefs) in <a href="http://spinroot.com/spin/Man/promela.html">Promela Language Reference</a>.
+
+   </li>
+
+   <p>[<span title="Add this to your model: ltl phi {[]((sender:x==0) -&gt; <>(receiver:r==0))}">spoiler</span>] </li>
+
+   <li>Indeed, the above future property is not valid, because the program can become
+   stuck after corruption. But, if the data never got corrupted, will every value x sent be eventually received? Can you express that as an LTL formula and verify it?
+
+   <li>
+   <p>(Challenging) What if we want to express a more general property: "if x is the value sent by
+   the sender, this value will eventually be received". Note that now you want to quantify
+   over the values of x. Unfortunately, SPIN does not allow quantifications to be
+   expressed in LTL formulas. Can you find a way to get around this?
+   </li>
+
+
+   </li>
+   </ol>
+
+</li>
+
+</ol>
+
+
+<h1><a name="assignment2">Assignment</a></h1>
+
+
+Here is a model of a solution for the Dining Philosopher:
+
+<blockquote>
+<pre class=PROGRAMLISTING>
+#define N 4
+#define FREE  N
+#define TRUE  1
+#define FALSE 0
+#define NEXT(i) (i+1)%N
+byte fork[N] ;
+bool eating[N] ;
+
+proctype Philosopher(byte i) {
+   do
+   :: atomic {
+        ((fork[i]==FREE) && (fork[NEXT(i)]==FREE)) ;
+        fork[i] = i ;
+        fork[NEXT(i)] = i
+      }
+      /* prove that here we do indeed have the forks: */
+      assert (fork[i]==i) && (fork[NEXT(i)]==i) ;
+      eating[i] = TRUE ;
+      eating[i] = FALSE ;
+      fork[i] = FREE ;
+      fork[NEXT(i)] = FREE
+   od
+}
+
+init {
+   byte k = 0 ;
+   /* initially, all forks are free */
+   do
+   :: k&lt;N  -&gt; fork[k] = FREE ; k++
+   :: k==N -&gt; break
+   od
+   k = 0 ;
+   /* create the philosophers and run them: */
+   atomic {
+     do
+     :: k&lt;N  -&gt; run Philosopher(k) ; k++
+     :: k==N -&gt; break
+     od
+   }
+}
+</pre>
+</blockquote>
+
+Questions:
+
+<ol>
+<li>The solution claims to be deadlock free. Verify this. (Figure out first how do you want to
+    express "deadlock free")
+
+<li>Unfortunately, the program is not starvation free. For example, the two neighbors of Philosopher(0) can
+    alternatingly grab their forks, and thus preventing the guard of Phil(0) to be ever enabled.
+    Weak nor strong fairness will not help in this case.
+
+    <br/>However, for executions where Phil(1) and Phil(3) defer from eating, we can still
+    verify that Phil(0) will eventually eat.
+    Verify this.
+
+
+<li>The solution above is <i>distributed</i> (it does not use a central process that dictates
+the order/schedule of the philosophers) and <i>non-deterministic</i> (there is pre-set order of
+when the philosophers eat). These are good properties for the philosophers.
+
+However, the solution is not ideal because it assumes that Phil(i) can lock the two forks it needs atomically.
+    Come up with a solution that does not need such an assumption, and moreover is deadlock free
+    (well, if you are up to it, you can also try to come up with a solution that is also starvation free).
+    Verify your solution.
+
+    <br/>Your solution should remain distributed and non-deterministic.
+
+</ol>
+
+
+Send me two models. Model-1 is the original one, with answer of (1) and an ltl property expressing (2).
+Model-2 is your solution for (3), along with a proof of correctness (in the form of e.g. ltl properties
+which I can verify to be valid).
+
+</body>
+</html>

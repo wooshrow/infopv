@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Program Semantics & Verification Course</title>
+  <meta name="description" content="home of the Program Semantics & Verification Course">
+  <meta name="author"      content="foo">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/skeleton.css">
+  <link rel="stylesheet" href="./css/custom.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="./images/favicon.png">
+
+</head>
+
+<body>
+<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<div class="container">
+    <div id="fixheader"></div>
+    <!-- this script will write the header (2 rows) -->
+    <script src="./header.js"></script>
+
+<div class="row"> <!-- row 3 -->
+
+
+<h4>Course Plan 24/25</h4>
+
+<table id="courseplan" summary="course plan">
+<thead>
+<tr class=col2>
+<th scope="col"><div class="celled">Week Nr.</div></th>
+<th scope="col">Lectures</th>
+<th scope="col">Assignments/project</th>
+<th scope="col">Dead lines</th>
+</tr>
+</thead>
+
+<!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">1 (37)</div></td>
+  <td>
+  <p>Explaining the course setup,
+  <br>Symbolic execution based verification.
+
+  <p><u>Slides:</u>
+
+  <a href="slides/PVadmin.pptx">admin</a> [<a href="slides/PVadmin.pdf">pdf</a>] |
+  <a href="slides/PV_hoare.pptx">predicate transformers</a> [<a href="slides/PV_hoare.pdf">pdf</a>]
+
+  </td>
+  <td>
+      <p><b>Monday</b> lab-session: kick off <b><a href="stuffs/PVproject_2425.pdf">Project PV</a></b>:
+        "wlp-based Bounded Symbolic Verification".
+        The needed GCL parser can be obtain <a href="https://github.com/wooshrow/gclparser">here</a>.
+        Do this in a group of 3.
+
+      <p><font color=red>Homework: install these tools:</font>
+        <ol>
+          <li><a href="https://hackage.haskell.org/package/z3">Z3 Haskell-binding.</a>
+            See <a href="https://github.com/wooshrow/gclparser">the README of the aforementioned GCL parser</a>
+            for examples how to test if your install works.
+            It also has some troubleshooting tips.
+
+          <li>The <a href="http://spinroot.com">SPIN</a> model checker.
+            To test the basic sanity of the SPIN executable, or to get familiar with the basic usage of Spin,
+            cd to the Examples directory that was created when you unpacked the source archive, and follow the instructions in README.tests
+            file that is included there.
+
+          <li><a href="https://www.prismmodelchecker.org/">PRISM</a> probabilistic model checker.
+        </ol>
+
+
+      <p>
+      <p><b>Wednesday</b> lab-session: we'll do some exercises on <a href="stuffs/PV_A1_1819.pdf">proving the correctness of
+        programs</a> to make you familiar with the basics,
+        or to fast-refresh your knowledge from B3STV.
+  </td>
+  <td></td>
+  </tr>
+
+
+<!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">2 (38)</div></td>
+  <td>
+
+  <p>Monday: continue with symbolic verification: arrays and objects,
+     local variables, program call, exception.
+
+  <p>Wednesday:  <b>No lecture.</b> I will be away. Use the time
+    to work on your PV project. The lecture room is reserved for us,
+    so you can use it.
+
+  <p><u>Slides:</u>
+
+  <a href="slides/PV_hoare.pptx">predicate transformers</a> [<a href="slides/PV_hoare.pdf">pdf</a>]
+
+  </td>
+
+  <td>
+    <p>Monday lab-sessions: working on the PV project.
+      Also: looking at your Z3-binding and SPIN install.
+
+    <p>Wednesday: I will be away. The lecture room is reserved for us,
+    so you can use it for working on your PV Project.
+  </td>
+
+  <td>
+    <font color=red>Deadline Z3-binding and SPIN install:
+    </font> on Thursday 19th sept.: you should all have
+       Z3-Binding and SPIN installed and working
+        on your laptop.
+        On Monday 23rd I will be checking this :)
+  </td>
+  </tr>
+
+<!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">3 (39)</div></td>
+  <td>
+  <p> LTL and CTL model checking.
+
+  <br><br><u>Slides:</u>
+      <a href="slides/PV_ltl.pptx">LTL-1</a> [<a href="slides/PV_ltl.pdf">pdf</a>]  |
+      <a href="slides/PV_smc.pptx">CTL</a> [<a href="slides/PV_smc.pdf">pdf</a>]
+  </td>
+  <td>
+  <p>Monday lab-session: working on the PV project.
+    Also: checking your Z3-binding and SPIN install.
+
+  <p>Wednesday lab-session: doing exercises on LTL model checking:
+        <a href="stuffs/exer_mc1.pdf">ltl-1<a> (<a href="stuffs/exer_mc1.sol.pdf">spoiler</a>) |
+        <a href="stuffs/exer_mc2.pdf">ltl-2<a> (<a href="stuffs/exer_mc2.sol.pdf">spoiler</a>)
+
+  <p>
+  </td>
+  <td></td>
+  </tr>
+
+<!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">4 (40)</div></td>
+  <td>
+  <p> <b>Monday:</b> Buchi automaton
+
+  <br><br><u>Slides</u>:
+  <a href="slides/PV_ltlb.pptx">LTL-2</a> [<a href="slides/PV_ltlb.pdf">pdf</a>]
+
+  <p><font color=red><b>Tuesday</b> 1st October, 17:00 - 20:00, EDUC-Beta, EXAM-1.</font></p>
+
+  <b>Wednesday:</b>Symbolic model checking.
+
+  <br><br><u>Slides</u>: <a href="slides/PV_smc.pptx">CTL</a> [<a href="slides/PV_smc.pdf">pdf</a>]
+
+  </td>
+  <td>
+   <p><b>Monday</b> lab-session: we will do some exercises on CTL model checking:
+      <a href="stuffs/exer_mc3.pdf">CTL</a> (<a href="stuffs/exer_mc3.sol.pdf">spoiler</a>)
+
+   <p><b>Wednesday</b> lab-session: working on your PV project. Finishing the base part of your PV project.
+
+  </td>
+  <td>
+  </td>
+
+  </tr>
+
+
+<!-- ***********************************************  -->
+
+  <tr >
+  <td><div class="celled">5 (41)</div></td>
+  <td>
+
+
+    <p> Promela and model checking with SPIN.
+
+    <br><br><u>Slides</u>:
+    <a href="slides/PV_spin1.pptx">SPIN1</a> [<a href="slides/PV_spin1.pdf">pdf</a>] |
+    <a href="slides/PV_spin2.pptx">SPIN2</a> [<a href="slides/PV_spin2.pdf">pdf</a>]
+
+  </td>
+
+  <td>
+      <p><b>Monday</b> lab-session: finishing the base part of your PV project.
+
+      <p><b>Wednesday</b> lab-session: <b>Project Status Presentation</b>; present the status of your PV project.
+      You should be able to show that it works on at least the example prohgram E() and the
+      benchmark program memberOf().
+
+  </td>
+
+  <td>
+  </td>
+  </tr>
+
+  <!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">6 (42)</div></td>
+  <td>
+ <p>Probabilistic Model Checking (PMC) part-1
+    (introduction, overview, discrete-time Markov chains, PCTL, PLTL).
+
+  <p>Slides: <a href="https://www.prismmodelchecker.org/lectures/esslli10/"> Kwiatkowska-Parker's PMC slides</a>, in particular:
+
+      <br>⦿ <a href="https://www.prismmodelchecker.org/lectures/esslli10/esslli10pmc-part1.pdf">Esslli10-Lectures-1 on DTMC</a>. This
+      includes PCTL model checking and PLTL model checking.
+      <br>⦿ more on PCTL model checking on DTMC: <a href=https://www.prismmodelchecker.org/lectures/pmc/05-dtmc%20model%20checking.pdf>Parker's Lectures-5</a>.
+      <br>⦿ I made a combined slides-pack that include selections of slides from the above sources plus my own
+      here: <a href="slides/pv-DTMC.pdf">PV-DTMC</a>.
+
+  </td>
+
+  <td>
+  <p><b>Monday</b> lab-session:
+      we will run a simple <a href="./stuffs/spin_tutorial.html">TUTORIAL with SPIN</a>; it includes an assignment that you'll have
+      to deliver.
+  <p><b>Wednesday</b> lab-session: working on the PV project.
+  </td>
+  <td> Friday: SPIN assignbment. Send your models to me.  </td>
+  </tr>
+
+  <!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">7 (43)</div></td>
+  <td>
+  <p>PMC part-2: Markov decision processes.
+
+  <p>Slides:
+      <br>⦿ <a href="https://www.prismmodelchecker.org/lectures/esslli10/esslli10pmc-part2.pdf">esslli10-Lectures-2 on MDP</a>
+      <br>⦿ more on PCTL model checking on MDP: <a href="https://www.prismmodelchecker.org/lectures/pmc/14-mdp%20model%20checking.pdf">Parker's Lectures-14</a>
+      <br>⦿ I made a combined slides-pack that include selections of slides from the above sources plus my own
+      here: <a href="slides/PV_MDP.pdf">PV-MDP</a>.
+    </ul>
+
+  <p>Wo do exercises:
+      <br>  ⦿ <a href="./stuffs/dtmc.pdf">DTMC exercise</a>
+              | <a href="./stuffs/dtmc_sol.pdf">solution</a>
+      <br> ⦿ <a href="./stuffs/mdp.pdf">MDP exercise</a>
+              | <a href="./stuffs/mdp_sol.pdf">solution</a>
+
+  </td>
+
+  <td>
+    <p><b>Monday</b> lab-session: <b>PRISM Tutorial Assignment</b>:
+
+         <br>(1) Download and install PRISM on your computer, if you have not done this yet in Week-1.
+         <br>(2) Do Part 1 of <a href="https://www.prismmodelchecker.org/tutorial/">this tutorial</a>.
+         <br>(3) From the remaining parts, choose one DTMC and one MDP example to do.
+         <br>(4) Document the "interesting things" from doing these tutorials. That is, you don't need to copy and repeat what is already in the tutorial itself, but it also includes several instructions like "do this and see what happens" or questions to answer. Write down your findings and answers. In many cases a screenshot will be sufficient, in others you might need to write a small bit of text.
+           (No extensive essays, please!)
+         <br>(5) Hand in your documentation by simply emailing a PDF to me.
+
+
+    <p><b>Wednesday</b> lab-session: exercises on DTMC and MDP model checking.
+    <p>
+  </td>
+  <td>
+  Friday: PRISM tutorial report.
+  </td>
+  </tr>
+
+  <!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">8 (44)</div></td>
+  <td>
+  <p><b>Monday:</b> reserved in case we overflow. The default plan is
+    to have no futher lecture to give the hours to you to finish your
+    PV Project.
+
+    <p><b>Wednesday:</b> presenting the results of your PV Project.
+  <td>
+    <p><b>Monday:</b> finishing your PV Project.
+
+    <p><b>Wednesday:</b> doing PMC exercises.
+
+  </td>
+
+  <td>
+  </td>
+  </tr>
+
+<!-- ***********************************************  -->
+  <tr class=col2>
+  <td><div class="celled">9 (45)</div></td>
+  <td> <font color=red>EXAM-2, Tuesday 05-11-2024,	17.00-20.00. Room: EDUC-ALFA</font>.
+  </td>
+  <td></td>
+  <td>
+      <font color=red>End of the week (sunday): deadline Project PV (paper + implementation). </font>
+          Mail me your paper, along with the link to a location from where I can download your
+          project. Also mention the work distribution among the team members.
+          Include a README with instruction how to build, how to use your tool,
+          and how to run it on an input GCL program.
+  </td>
+  </tr>
+
+
+
+</table>
+
+
+</div>  <!-- row 3 -->
+</div><!-- container -->
+<!-- End Document –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
