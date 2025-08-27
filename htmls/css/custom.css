@@ -1,0 +1,56 @@
+.img-circle {
+    border-radius: 50%;
+}
+
+.img-header{
+}
+
+[mystyle=bw1] {
+  background-color: #ffffee;
+  font-family: "Times-roman";
+  border-left: 5px solid #f7f055 ;
+  padding: 2px;
+}
+
+[mystyle=navbutton2] {
+    font-size: 10px; 
+    font-weight: 600;
+    text-transform: uppercase;
+    border-left: 4px solid #bbb;
+    padding: 2px;
+}
+
+[mystyle=bw2] {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+[mystyle=bw3] {
+  background-color: #ddeef7;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#courseplan {
+  font-family: sans-serif;
+  font-size: smaller ;
+  border: 1px solid;
+  text-align: left;
+  margin: 20px;
+}
+
+#courseplan .celled {
+  padding: 5px;
+}
+
+#courseplan tr:hover {
+   background: #d0dafd;
+}
+
+#courseplan tr.col1 {
+   background-color: #eeeeaa ;
+}
+
+#courseplan tr.col2 {
+   background-color: #eeffcc ;
+}
