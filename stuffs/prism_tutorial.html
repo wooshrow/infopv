@@ -10,25 +10,73 @@
 
 <p><li>Download and install PRISM on your computer, if you have not done this yet in Week-1.
 
-<p><li>Do the first tutorial, Knuth Die, from <a href="https://www.prismmodelchecker.org/tutorial/">this tutorial</a>.
-       Then, do one more DTMC tutorial, namely Herman,
-       and the Dining Philosophers tutorial for MDP.
+<p><li>Do the first tutorial, <b>Knuth Die</b>, from <a href="https://www.prismmodelchecker.org/tutorial/">this tutorial</a>.
+       Then, do one more DTMC tutorial, namely <b>Herman</b>,
+       and the <b>Dining Philosophers</b> tutorial for MDP.
 
-<p><li>Document your findings from doing these tutorials in a <b>Report</b>
-       of about 4-6 pages. A neat report is expected. Using Latex is recommended.
+       For Latex, <a href="https://www.overleaf.com/latex/templates/cwp-report-template-for-colorado-school-of-mines/kvcsvpwrvbvx">here is a nice template</a>.
+       If you use Overleaf you can immediately copy the template.
+
+<p><li>Document your findings (more on this is specified below) from doing these tutorials in a <b>Report</b>
+       of about 4-6 pages. 
+       A neat report is expected;  using Latex is recommended.
+       Try to write the report narratively rather than just presenting
+       a bullet list of findings. 
            
+       <p>
        <ul>
-       <li>You don't need to copy and repeat the texts in in the tutorials.
-           The tutorials contain instructions like "do this and see what happens"
-           or questions to answer. Write down your findings/answers and give some
-           motivation.
-       <br>Specifically for the Knuth Die tutorial, it includes a task where you compute the
-        expected termination time of Knuth-Yao algorithm by hand (so, analytically).
-        Show the set of equations that you use to do this, and show the result
-        of your calculation.
-       <li>Include visuals like graphs, tables, or screenshots when
-            necessary to improve your Report's clarity.
+       <li>For <b>Knuth Die:</b> your findings on the last three sections: 
+              <i>Model checking with PRISM</i>, 
+              <i>Statistical model checking with PRISM</i>, and
+              <i>Expected termination time</i>. 
+              
+              <br>Give a one paragraph summary what the algorithm is about, along with 
+              a citation to the paper where more information on the algorithm can be found.
+
+              <br>Include the graphs that you produce
+              there and give a discussion on the graphs. 
+              
+              <br>For the last section, also include the math that leads to your
+              hand calculated results.
+
+       <p>
+       <li>For <b>Herman:</b> your findings on the number of states of <i>herman7.pm</i>
+              and your findings on the last two sections:
+              <i>Reaching a stable state</i> and
+              <i>Initial configurations</i> (where you experimentally 
+              verify a certain unproven conjecture).  
+              
+              <br>Give a one paragraph summary what the algorithm is about, 
+              along with a citation to the paper where more information on the algorithm can be found. 
+
+              Include the graph/s that you produce
+              there and give a discussion on the graph/s. 
+
+       <p>
+       <li>For <b>Dining Philosophers:</b>
+
+          <br>Give a one paragraph summary what the Dining Philosophers problem is about.
+          
+          <br>Give a summary how Lehmann-Rabin randomised solution works. 
+
+          <br>Present your results of analysis of Lehman-Rabin and that of its Courteuos
+          variant.
+
        </ul>
+
+
+<p>Few formatting tips to improve the neatness of your report:
+      <ol>
+      <li>Use fully aligned paragraphs (no-jagged right).
+      <li>Avoid using overly large margins. This decreases the information density.
+      <li>Figures and tables are centerly aligned. Figures-width should be smaller
+       than your text-width. 
+      <li>Pay attention to the size of a figure and its information content. Showing
+       a large picture with little content makes an impression that you try to bloat
+       the report/paper.
+      <li>If you number a figure like "Figure 2.1: probabilities over different epsilon",
+       then you should refer to it from your main text (else there is no need to number it).
+      </ol>
 
 <p><li>Hand in your documentation by simply emailing a PDF to me.
   
@@ -36,11 +84,17 @@
 
 <p>Points:
   <ul>
-  <li>Knuth Die: 2.5 pt, including the hand derivation mentioned above.
-  <li>Herman: 2.5 pt
-  <li>Dining Philosophers: 2.5pt
-  <li>Neat report (Latex standard): 1.5
-  <li>Report clarity, e.g. through visual supports: 1pt
+  <li>Content completeness of the asked content. 
+       <br>Well formulated arguments and discussion.
+       Clarity of your paragraphs. 
+       <br>Having abstract and conclusion. Using citations where asked.
+       <br>Main components:
+       Knuth Die, 
+       Herman, 
+       Dining Philosophers. Each 2.5 pt.
+
+  <li> Presentation. Neatness. Use of helpful tables and 
+       graphs to improve presentation and comprehensibility. Elegance. 2.5pt. 
   </ul>
 
 </body>
