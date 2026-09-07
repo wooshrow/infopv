@@ -2,7 +2,7 @@ var header =
      '<div class="row"> <!-- row 1 -->' +
      '<div class="six columns">' +
 	 '<img src="./images/PVpic.png" class="img-circle" height="30%" width="30%" >' +
-	  '<h5>Course Program Semantics & Verification 2025/26</h5>' +
+	  '<h5>Course Program Semantics & Verification 2026/27</h5>' +
       '</div>' +
       '<div id="nav" class="six columns">' +
       '  <a mystyle="navbutton2" href="index.html">news</a> &nbsp; ' +

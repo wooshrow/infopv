@@ -36,7 +36,7 @@
 <div class="row"> <!-- row 3 -->
 
 
-<h4>Course Plan 25/26</h4>
+<h4>Course Plan 26/27</h4>
 
 <table id="courseplan" summary="course plan">
 <thead>
@@ -62,7 +62,7 @@
 
   </td>
   <td>
-      <p><b>Monday</b> lab-session: kick off <b><a href="stuffs/PVproject_2526.pdf">Project PV</a></b>:
+      <p><b>Wednesday</b> lab-session: kick off <b><a href="stuffs/PVproject_2627.pdf">Project PV</a></b>:
         "wlp-based Bounded Symbolic Verification".
         The needed GCL parser can be obtain <a href="https://github.com/wooshrow/gclparser">here</a>.
         Do this in a group of 3.
@@ -70,6 +70,8 @@
       <p><font color=red>Homework: install these tools:</font>
         <ol>
           <li><a href="https://hackage.haskell.org/package/z3">Z3 Haskell-binding.</a>
+            See the <b><a href="stuffs/PVproject_2627.pdf">Project document</a></b> for which versions of
+            GHC and Z3 work.
             See <a href="https://github.com/wooshrow/gclparser">the README of the aforementioned GCL parser</a>
             for examples how to test if your install works.
             It also has some troubleshooting tips.
@@ -92,14 +94,13 @@
   <td><div class="celled">2 (38)</div></td>
   <td>
 
-  <p>Monday: continue with symbolic verification: arrays and objects,
+  <p>Continue with symbolic verification: arrays and objects,
      local variables, program call, exception.
 
   <p><u>Slides:</u>
 
   <a href="slides/PV_hoare.pptx">predicate transformers</a> [<a href="slides/PV_hoare.pdf">pdf</a>]
 
-  <p>Wednesday: </p>LTL model checking.
 
   <br><br><u>Slides:</u>
       <a href="slides/PV_ltl.pptx">LTL-1</a> [<a href="slides/PV_ltl.pdf">pdf</a>]
@@ -121,10 +122,10 @@
 
   <td>
     <font color=red>Deadline Z3-binding and SPIN install:
-    </font> on Thursday 18th sept.: you should all have
+    </font> on Tuesday 15th sept.: you should have
        Z3-Binding and SPIN installed and working
-        on your laptop.
-        On Monday 22nd I will be checking this :)
+       on your laptop.
+      On Wednesday 16th I will be checking this :)
   </td>
   </tr>
 
@@ -132,15 +133,15 @@
   <tr>
   <td><div class="celled">3 (39)</div></td>
   <td>
-  <p> LTL and CTL model checking.
+  <p> LTL model checking, Buchi automaton.
 
   <br><br><u>Slides:</u>
       <a href="slides/PV_ltl.pptx">LTL-1</a> [<a href="slides/PV_ltl.pdf">pdf</a>]  |
-      <a href="slides/PV_smc.pptx">CTL</a> [<a href="slides/PV_smc.pdf">pdf</a>]
+      <a href="slides/PV_ltlb.pptx">LTL-2</a> [<a href="slides/PV_ltlb.pdf">pdf</a>]
   </td>
   <td>
   <p>Monday lab-session: working on the PV project.
-    Also: checking your Z3-binding and SPIN install.
+    
 
   <p>Wednesday lab-session: doing exercises on LTL model checking:
         <a href="stuffs/exer_mc1.pdf">ltl-1<a> (<a href="stuffs/exer_mc1.sol.pdf">spoiler</a>) |
@@ -155,16 +156,10 @@
   <tr>
   <td><div class="celled">4 (40)</div></td>
   <td>
-  <p> <b>Monday:</b> Buchi automaton
+  <p> <b>Monday:</b> CTL model checking, symbolic model checking.
 
-  <br><br><u>Slides</u>:
-  <a href="slides/PV_ltlb.pptx">LTL-2</a> [<a href="slides/PV_ltlb.pdf">pdf</a>]
-
-  <p><font color=red><b>Tuesday</b> 30th September, 17:00 - 20:00, Bol 1.078, EXAM-1.</font></p>
-
-  <b>Wednesday:</b>Symbolic model checking.
-
-  <br><br><u>Slides</u>: <a href="slides/PV_smc.pptx">CTL</a> [<a href="slides/PV_smc.pdf">pdf</a>]
+  <br><br><u>Slides</u>: 
+     <a href="slides/PV_smc.pptx">CTL and sym MC</a> [<a href="slides/PV_smc.pdf">pdf</a>] 
 
   </td>
   <td>
@@ -189,18 +184,15 @@
 
     <p> Promela and model checking with SPIN.
 
-    <br><br><u>Slides</u>:
-    <a href="slides/PV_spin1.pptx">SPIN1</a> [<a href="slides/PV_spin1.pdf">pdf</a>] |
-    <a href="slides/PV_spin2.pptx">SPIN2</a> [<a href="slides/PV_spin2.pdf">pdf</a>]
+    <p><font color=red><b>Wednesday</b> 7th October, 13:30 - 16:30, EDUC-ALFA, EXAM-1.</font></p>
+  
 
+    <br><br><u>Slides</u>:
+    <a href="slides/PV_spin1.pptx">SPIN1</a> [<a href="slides/PV_spin1.pdf">pdf</a>] 
   </td>
 
   <td>
       <p><b>Monday</b> lab-session: finishing the base part of your PV project.
-
-      <p><b>Wednesday</b> lab-session: <b>Project Status Presentation</b>; present the status of your PV project.
-      You should be able to show that it works on at least the example program E() and the
-      benchmark program memberOf().
 
   </td>
 
@@ -208,9 +200,34 @@
   </td>
   </tr>
 
-  <!-- ***********************************************  -->
-  <tr>
+<!-- ***********************************************  -->
+
+  <tr >
   <td><div class="celled">6 (42)</div></td>
+  <td>
+
+
+    <p> Promela and model checking with SPIN.
+
+    <br><br><u>Slides</u>:
+    <a href="slides/PV_spin1.pptx">SPIN1</a> [<a href="slides/PV_spin1.pdf">pdf</a>] |
+    <a href="slides/PV_spin2.pptx">SPIN2</a> [<a href="slides/PV_spin2.pdf">pdf</a>]
+
+  </td>
+  <td>
+    <p><b>Monday</b> lab-session: finishing the base part of your PV project.
+    <p><p><b>Wednesday</b> lab-session: <b>Project Status Presentation</b>; present the status of your PV project.
+      You should be able to show that it works on at least the example program E() and the
+      benchmark program memberOf().    
+  </td>
+
+  <td>
+  </td>
+  </tr>
+
+<!-- ***********************************************  -->
+  <tr>
+  <td><div class="celled">7 (43)</div></td>
   <td>
  <p>Probabilistic Model Checking (PMC) part-1
     (introduction, overview, discrete-time Markov chains, PCTL, PLTL).
@@ -229,14 +246,15 @@
   <p><b>Monday</b> lab-session:
       we will run a simple <a href="./stuffs/spin_tutorial.html">TUTORIAL with SPIN</a>; it includes an assignment that you'll have
       to deliver.
-  <p><b>Wednesday</b> lab-session: working on the PV project.
+
+  <p><b>Wednesday</b> lab-session: working on the PV project.  
   </td>
-  <td> Friday: SPIN assignbment. Send your models to me.  </td>
+  <td> Sunday: SPIN assignment. Send your models to me.  </td>
   </tr>
 
   <!-- ***********************************************  -->
   <tr>
-  <td><div class="celled">7 (43)</div></td>
+  <td><div class="celled">8 (44)</div></td>
   <td>
   <p>PMC part-2: Markov decision processes.
 
@@ -262,34 +280,31 @@
     <p>
   </td>
   <td>
-  Friday: PRISM tutorial report.
+  Sunday: PRISM tutorial report.
   </td>
   </tr>
 
-  <!-- ***********************************************  -->
+<!-- ***********************************************  -->
   <tr>
-  <td><div class="celled">8 (44)</div></td>
-  <td>
-  <p><b>Monday:</b> reserved in case we overflow. The default plan is
+  <td><div class="celled">9 (45)</div></td>
+  <td> 
+    <p><b>Monday:</b> reserved in case we overflow. The default plan is
     to have no futher lecture to give the hours to you to finish your
     PV Project.
-
     <p><b>Wednesday:</b> presenting the results of your PV Project.
+  </td>
   <td>
     <p><b>Monday:</b> finishing your PV Project.
-
-    <p><b>Wednesday:</b> doing PMC exercises.
-
+    
   </td>
-
   <td>
   </td>
   </tr>
 
 <!-- ***********************************************  -->
   <tr class=col2>
-  <td><div class="celled">9 (45)</div></td>
-  <td> <font color=red>EXAM-2, Tuesday 04-11-2025,	17.00-20.00. Room: Ruppert 002</font>.
+  <td><div class="celled">10 (46)</div></td>
+  <td> <font color=red>EXAM-2, Wednesday 11-11-2026,	17.00-20.00. Room: EDUC-GAMMA</font>.
   </td>
   <td></td>
   <td>
