@@ -7,7 +7,7 @@ var header =
       '<div id="nav" class="six columns">' +
       '  <a mystyle="navbutton2" href="index.html">news</a> &nbsp; ' +
       '  <a mystyle="navbutton2" href="./plan.html">course plan</a> &nbsp; ' +
-      '  <a mystyle="navbutton2" href="https://osiris-student.uu.nl/onderwijscatalogus/extern/cursus?cursuscode=INFOMPSV&collegejaar=2025">info @osiris</a>  &nbsp;' +
+      '  <a mystyle="navbutton2" href="https://osiris-student.uu.nl/onderwijscatalogus/extern/cursus?cursuscode=INFOMPSV&collegejaar=2026">info @osiris</a>  &nbsp;' +
       '  <a mystyle="navbutton2" href="javascript:history.go(0)">refresh</a>' +
       '</div>' +
     '</div> <!-- row 1 -->'
