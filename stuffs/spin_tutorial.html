@@ -207,7 +207,7 @@ The number of processes in the above model is just above the default allowed num
 <p>Questions:
 
 <ol>
-<li>The single <tt>assert</tt> expression in the model is an attempt
+<li> (1pt) The single <tt>assert</tt> expression in the model is an attempt
   to verify that "when a philopher eat it will have the forks it needs".
   Let's call this property <i>safe</i>.
   You can use SPIN to verify that this assert is never violated by
@@ -221,14 +221,14 @@ The number of processes in the above model is just above the default allowed num
   <br><i>Note:</i> the property <i>safe</i> above implies that when philopher P is
   eating, no other philosophers can 'steal' the forks that P needs.
 
-<li>Check that the solution has no invalid end-state violation. 
+<li> (1pt) Check that the solution has no invalid end-state violation. 
   Does this mean that the solution is <i>deadlock free</i>? 
   
   Give a reasonable definition
   of what <i>deadlock free</i> should mean here. Keep in mind that what philosophers 
-  want is to eat. 
+  want is to eat. Hint: use LTL. Verify that the solution is deadlock free.
 
-<li>Unfortunately, the program is not starvation free. For example, the two neighbors of Philosopher(0) can
+<li> (1pt) Unfortunately, the program is not starvation free. For example, the two neighbors of Philosopher(0) can
     alternatingly grab their forks, and thus preventing the guard of Phil(0) to be ever enabled.
     Weak nor strong fairness will not help in this case.
 
@@ -237,7 +237,7 @@ The number of processes in the above model is just above the default allowed num
     Verify this.
 
 
-<li>The solution above is <i>distributed</i> (it does not use a central process that dictates
+<li> (7pt, optional +0.5) The solution above is <i>distributed</i> (it does not use a central process that dictates
 the order/schedule of the philosophers) and <i>non-deterministic</i> (there is pre-set order of
 when the philosophers eat). These are good properties for the philosophers.
 
@@ -249,7 +249,7 @@ However, the solution is not ideal because it assumes that Phil(i) can lock the 
     <br/>Your solution should remain distributed and non-deterministic. 
     Defer from using Promela's <i>timeout</i>.
 
-    <br>+0,5 pt for a starvation free solution; inlcude an LTL that proves that.
+    <br>+0.5 pt for a solution that is also starvation free; inlcude an LTL that proves that.
 
 </ol>
 
