@@ -159,13 +159,23 @@ proctype Philosopher(byte i) {
         fork[i] = i ;
         fork[NEXT(i)] = i
       }
-      /* prove that here we do indeed have the forks: */
+      /* an attemp to prove that here we do indeed have the forks: */
       assert (fork[i]==i) && (fork[NEXT(i)]==i) ;
       eating[i] = TRUE ;
+      skip ;
       eating[i] = FALSE ;
       fork[i] = FREE ;
       fork[NEXT(i)] = FREE
    od
+}
+
+// a do-nothing process to simulate other non-eating activities
+// in the system
+active proctype DoOtherThings() {
+    byte xxx ;
+    do
+    :: xxx = 1 
+    od
 }
 
 init {
@@ -187,18 +197,43 @@ init {
 </pre>
 </blockquote>
 
-Questions:
+The number of processes in the above model is just above the default allowed number for enabling weak-fairness. 
+
+<ul>
+<li> Compile with this additional option: <tt>gcc -o pan pan.c -DNFAIR=3</tt>
+<li> Run the verifier with fairness turned-on: <tt>./pan -a -f</tt> (and whatever other options you have, e.g. -N to select a specific LTL formula to check). Check Spin documentation on available options.
+</ul>
+
+<p>Questions:
 
 <ol>
-<li>The solution claims to be deadlock free. Verify this. (Figure out first how do you want to
-    express "deadlock free")
+<li>The single <tt>assert</tt> expression in the model is an attempt
+  to verify that "when a philopher eat it will have the forks it needs".
+  Let's call this property <i>safe</i>.
+  You can use SPIN to verify that this assert is never violated by
+  the model. An argument against using assert is that it is not always
+  clear what it captures. Moreover, it does not check if the philosopher
+  still has the forks when in gets into the "skip" part (representing
+  it is still eating).
+  Propose an LTL property that captures <i>safe</i> and
+  verify it with SPIN.
+
+  <br><i>Note:</i> the property <i>safe</i> above implies that when philopher P is
+  eating, no other philosophers can 'steal' the forks that P needs.
+
+<li>Check that the solution has no invalid end-state violation. 
+  Does this mean that the solution is <i>deadlock free</i>? 
+  
+  Give a reasonable definition
+  of what <i>deadlock free</i> should mean here. Keep in mind that what philosophers 
+  want is to eat. 
 
 <li>Unfortunately, the program is not starvation free. For example, the two neighbors of Philosopher(0) can
     alternatingly grab their forks, and thus preventing the guard of Phil(0) to be ever enabled.
     Weak nor strong fairness will not help in this case.
 
-    <br/>However, for executions where Phil(1) and Phil(3) defer from eating, we can still
-    verify that Phil(0) will eventually eat.
+    <br/>However, for executions where Phil(1) and Phil(3) defer from eating, Phil(0)
+    shoudl be able to progress. That is, whenever Phil(0) is not eating, it will eventually eat.
     Verify this.
 
 
@@ -211,13 +246,17 @@ However, the solution is not ideal because it assumes that Phil(i) can lock the 
     (well, if you are up to it, you can also try to come up with a solution that is also starvation free).
     Verify your solution.
 
-    <br/>Your solution should remain distributed and non-deterministic.
+    <br/>Your solution should remain distributed and non-deterministic. 
+    Defer from using Promela's <i>timeout</i>.
+
+    <br>+0,5 pt for a starvation free solution; inlcude an LTL that proves that.
 
 </ol>
 
 
-Send me two models. Model-1 is the original one, with answer of (1) and an ltl property expressing (2).
-Model-2 is your solution for (3), along with a proof of correctness (in the form of e.g. ltl properties
+Send me two models. Model-1 is the original one, with answer of questions 1..3 in the
+form of LTL properties (verified them first that they are indeed valid on the model)
+and Model-2 is your solution for question-4, along with a proof of correctness (in the form of e.g. ltl properties
 which I can verify to be valid).
 
 </body>
